@@ -13,16 +13,18 @@ Project 3A: read in board, print board, find initial conflicts, print conflicts
 
 using namespace std;
 
+//initiate a board using sudoku.txt for the file
 board::board() {
-	//initiate board from sudoku file
 	readBoard("sudoku.txt");
 }
 
+//initiate a board with a filename
 board::board(const string fileName) {
 	//initiates board from user-inputted file
 	readBoard(fileName);
 }
 
+//reads boards in from a file
 void board::readBoard(const string fileName) {
 	currentBoard.resize(9, 9);
 	int num;
@@ -84,6 +86,7 @@ void board::readBoard(const string fileName) {
 	remainingBoards.erase(remainingBoards.begin());
 }
 
+//prints the current board
 void board::printBoard() {
 	//wide chars for major borders
 	char wside = 221;
@@ -139,11 +142,11 @@ void board::printConflicts() {
 	
 }
 
-bool board::checkConflicts(const int val, const int r, const int c) {
+void board::updateConflicts() {
 	
 }
 
-void board::updateConflicts() {
+bool board::checkConflicts(const int val, const int r, const int c) {
 	
 }
 
@@ -153,6 +156,21 @@ void board::nextBoard() {
 		currentBoard = remainingBoards[0];
 		remainingBoards.erase(remainingBoards.begin());
 	}
+}
+
+bool board::checkSolved() {
+	
+}
+
+bool board::cellEmpty(const int r, const int c) {
+	if(currentBoard[r][c] == 0) {
+		return true;
+	}
+	return false;
+}
+
+void board::fillCells() {
+	
 }
 
 #endif

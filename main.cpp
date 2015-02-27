@@ -9,6 +9,7 @@ int main() {
 	return 0;
 }
 
+//main subprogram to run the program, allows self calling
 void playgame() {
 	//sets file name
 	string fileName;

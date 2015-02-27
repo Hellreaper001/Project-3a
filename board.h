@@ -21,21 +21,21 @@ using namespace std;
 
 class board {
 	public:
-		board();
-		board(const string fileName);
-		void readBoard(const string fileName);
-		void printBoard();
-		void printConflicts();
-		void updateConflicts();
-		bool checkConflicts(const int val, const int r, const int c);
-		int NumRemainingBoards() {return remainingBoards.size();};
+		board();																			//finished
+		board(const string fileName);														//finished
+		void readBoard(const string fileName);												//finsihed
+		void printBoard();																	//finished
+		void printConflicts();																//Still need to complete
+		void updateConflicts();																//Still need to complete
+		bool checkConflicts(const int val, const int r, const int c);						//Still need to complete
+		int NumRemainingBoards() {return remainingBoards.size();};							//finished
 		
-		void nextBoard();
-		void addValue(const int val, const int r, const int c);
-		void clearCell(const int r, const int c);
-		bool checkSolved();
-		bool cellEmpty(const int r, const int c);
-		void fillCells();
+		void nextBoard();																	//finished
+		void addValue(const int val, const int r, const int c) {currentBoard[r][c] = val;};	//finished
+		void clearCell(const int r, const int c) {currentBoard[r][c] = 0;};					//finished
+		bool checkSolved();																	//Complete for 3b
+		bool cellEmpty(const int r, const int c);											//finished
+		void fillCells();																	//Complete for 3b
 		
 	private:
 		
