@@ -1,3 +1,12 @@
+/*
+main.cpp
+Authors: Andrew Blum and Justin Hynes-Bruell
+
+Description: Reads boards in from a file and completes them, printing out before and after versions of each board. 
+Project 3a: read in board, print board, find initial conflicts, print conflicts
+		3b: finish the program
+*/
+
 #include "board.cpp"
 
 using namespace std;

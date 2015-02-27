@@ -1,9 +1,9 @@
 /*
 Board.h
-Authors: Andrew Blum
+Authors: Andrew Blum and Justin Hynes-Bruell
 
 Description: Used to create a sudoku board. Created from a file. 
-Project 3A: read in board, print board, find initial conflicts, print conflicts
+Project 3a: read in board, print board, find initial conflicts, print conflicts
 */
 
 #ifndef BOARD_CLASS
