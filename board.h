@@ -42,9 +42,9 @@ class board {
 		matrix<int> currentBoard;
 		vector<matrix<int> > remainingBoards;
 		vector<int> conflicts;
-		vector<int> row;
-		vector<int> column;
-		vector<int> square;
+		matrix<int> row;
+		matrix<int> column;
+		matrix<int> square;
 };
 
 #endif

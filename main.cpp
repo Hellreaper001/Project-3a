@@ -21,6 +21,8 @@ int main() {
 //main subprogram to run the program, allows self calling
 void playgame() {
 	//sets file name
+	char proceed;
+	char compare = 27;
 	string fileName;
 	cout << "What file would you like to use? ";
 	cin >> fileName;
