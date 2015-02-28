@@ -1,50 +1,68 @@
 /*
-Board.h
-Authors: Andrew Blum and Justin Hynes-Bruell
+Program By:
+Justin Hynes-Bruell
+Andrew Blum
 
-Description: Used to create a sudoku board. Created from a file. 
-Project 3a: read in board, print board, find initial conflicts, print conflicts
+Board.h
 */
 
-#ifndef BOARD_CLASS
-#define BOARD_CLASS
+// Declarations and functions for project #4
 
-#include <stdlib.h>
-#include <vector>
-#include <stdexcept>
-#include <fstream>
+#ifndef boardClass
+#define boardClass
+
 #include <iostream>
-
+#include <limits.h>
 #include "d_matrix.h"
+#include "d_except.h"
+#include <list>
+#include <fstream>
 
 using namespace std;
 
-class board {
-	public:
-		board();																			//finished
-		board(const string fileName);														//finished
-		void readBoard(const string fileName);												//finsihed
-		void printBoard();																	//finished
-		void printConflicts();																//Still need to complete
-		void updateConflicts();																//Still need to complete
-		bool checkConflicts(const int val, const int r, const int c);						//Still need to complete
-		int NumRemainingBoards() {return remainingBoards.size();};							//finished
-		
-		void nextBoard();																	//finished
-		void addValue(const int val, const int r, const int c) {currentBoard[r][c] = val;};	//finished
-		void clearCell(const int r, const int c) {currentBoard[r][c] = 0;};					//finished
-		bool checkSolved();																	//Complete for 3b
-		bool cellEmpty(const int r, const int c);											//finished
-		void fillCells();																	//Complete for 3b
-		
-	private:
-		
-		matrix<int> currentBoard;
-		vector<matrix<int> > remainingBoards;
-		vector<int> conflicts;
-		matrix<int> row;
-		matrix<int> column;
-		matrix<int> square;
+typedef int ValueType; // The type of the value in a cell
+const int Blank = -1;  // Indicates that a cell is blank
+ 
+const int SquareSize = 3;  //  The number of cells in a small square
+                           //  (usually 3).  The board has
+                           //  SquareSize^2 rows and SquareSize^2
+                           //  columns.
+
+const int BoardSize = SquareSize * SquareSize;
+
+const int MinValue = 1;
+const int MaxValue = 9;
+
+//int numSolutions = 0;
+
+class board
+// Stores the entire Sudoku board
+{
+   public:
+      board();
+      void clear();
+      void initialize(ifstream &fin);
+      void print();
+      bool isBlank(int, int);
+      ValueType getCell(int, int);
+	  void setCell(int i, int j, int input);
+	  void printConflicts();
+	  void updateConflicts();
+	  void clearCell(int i, int j);
+	  bool checkConflicts(int i, int j, int input);
+	  bool checkSolved();
+      
+   private:
+
+      // The following matrices go from 1 to BoardSize in each
+      // dimension.  I.e. they are each (BoardSize+1) X (BoardSize+1)
+
+      matrix<ValueType> value;
+
+	  matrix<bool> column;
+	  matrix<bool> row;
+	  matrix<bool> square;
 };
+
 
 #endif
