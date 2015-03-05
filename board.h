@@ -51,6 +51,7 @@ class board
 	  void clearCell(int i, int j);
 	  bool checkConflicts(int i, int j, int input);
 	  bool checkSolved();
+	  bool solve();
       
    private:
 
